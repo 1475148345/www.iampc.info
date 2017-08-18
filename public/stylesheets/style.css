@@ -338,7 +338,7 @@ body {
 *第二部分
 */
 .content-nav {
-  background: #f2f5f5;
+  background: #d7f3f3;
   border-radius: 5px; }
   .content-nav nav {
     display: flex; }
@@ -361,7 +361,7 @@ body {
 */
 .content-body {
   min-height: 800px;
-  background: #f2f5f5;
+  background: #d7f3f3;
   border-radius: 5px;
   margin-top: 20px; }
   .content-body ul {
