@@ -1,0 +1,174 @@
+@charset "utf-8";
+@import 'reset';
+@import 'base';
+@import 'animate';
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  background: url('http://www.iampc.info/images/bg-img.png') no-repeat center;
+  background-size: cover;
+}
+
+.ceng {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000000;
+  opacity: 0.5;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 222;
+}
+
+
+/*
+*第一部分
+*/
+
+.content-header {
+  max-width: 1210px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h1 a {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    img {
+      width: 80px;
+    }
+  }
+  div {
+    display: flex;
+    border-radius: 3px;
+  }
+  input {
+    border: 1px solid #ccc;
+    border-right: 0;
+    padding: 3px;
+    color: #fff;
+    background: none;
+    width: 124px;
+    height: 16px;
+    &::-webkit-input-placeholder {
+      color: #fff;
+    }
+  }
+  div span {
+    display: block;
+    height: 16px;
+    padding: 3px;
+    font-size: 12px;
+    border: 1px solid #21b1db;
+    border-left: 0;
+    background-color: #21b1db;
+    color: #000;
+    cursor: pointer;
+  }
+}
+
+
+/*
+*第二部分
+*/
+
+.content-nav {
+  background: #f2f5f5;
+  border-radius: 5px;
+  nav {
+    display: flex;
+  }
+  span {
+    padding: 0 10px;
+    display: block;
+    color: #333;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    &:hover {
+      cursor: pointer;
+    }
+    &.active,
+    &:hover {
+      color: #ed86aa;
+      transform: scale(1.2);
+      transition: all .2s ease-in;
+    }
+  }
+}
+
+
+/*
+*第三部分
+*/
+
+.content-body {
+  min-height: 800px;
+  background: #f2f5f5;
+  border-radius: 5px;
+  margin-top: 20px;
+  ul {
+    padding-left: 30px;
+  }
+  li {
+    list-style: decimal;
+    padding-top: 10px;
+  }
+  a {
+    color: #333;
+    font-size: 18px;
+    transition: all .3s ease-in;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}
+
+/*
+*alert-ui
+*/ 
+.alert-ui{
+  
+  div{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .2);
+    z-index: 555;
+  }
+  section{
+    min-width: 100px;
+    border-radius: 12px;
+    background-color: #fff;
+    position: fixed;
+    z-index: 666;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%,-50%);
+    padding: 10px 15px;
+    text-align: center;
+    span{
+      display: block;
+      padding-top: 15px;
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,107 @@
+extends layout
+block content
+  section(class='content-header')
+    h1
+      a(href="javascript:;")
+        image(src="http://www.iampc.info/images/pan.png")
+        span(class='ml5') my
+    div
+      input(type='text' placeholder='请输入搜索内容')
+      span#searchList 搜索
+  section(class='content-nav')   
+    nav#navClickItem
+      - each item,index in nav
+          if index == 0
+            span.active #{item.title}
+          else
+            span #{item.title}
+
+       
+  section(class='content-body')
+    ul#showContent
+      //- - each item in content
+      //-     li
+      //-       a(href='#{item.hrefTitle}' target='_blank') #{item.hrefValue}
+  script.
+    $(function(){
+      init();
+
+      //初始化数据
+      function init(){
+        $.ajax({
+            type:'get',
+            url:'http://localhost:3000/findList',
+            data:{
+              type:'HTML'
+            },
+          success:function(data){
+            var showContent='';
+            data.map((d)=>{
+              showContent+=`<li>
+                <a href='${d.hrefTitle}' target='_blank'>${d.hrefValue}</a>
+              </li>`;
+            })
+            $('#showContent').html(showContent)
+          },
+          error:function(){
+            console.log('error');
+          }
+        })
+      }
+
+      // 导航切换,加载内容
+      $('#navClickItem span').on('click', function () {
+        $(this).addClass('active').siblings('span').removeClass('active');
+        var params=$(this).text();
+        $.ajax({
+          type:'get',
+          url:'http://localhost:3000/findList',
+          data:{
+            type:params
+          },
+        success:function(data){
+          var showContent='';
+          data.map((d)=>{
+            showContent+=`<li>
+              <a href='${d.hrefTitle}' target='_blank'>${d.hrefValue}</a>
+            </li>`;
+          })
+           $('#showContent').html(showContent)
+        },
+        error:function(){
+           console.log('error');
+         }
+        })
+      });
+
+      //搜索功能实现
+      $('#searchList').on('click',function(){
+        var searchTitle=$(this).siblings('input').val();
+        $.ajax({
+          type:'get',
+          url:'http://localhost:3000/searchList',
+          data:{
+            type:searchTitle
+          },
+        success:function(data){
+          var showContent='';
+          if(data.length>0){
+              data.map((d)=>{
+                showContent+=`<li>
+                  <a href='${d.hrefTitle}' target='_blank'>${d.hrefValue}</a>
+                </li>`;
+            })
+            $('#showContent').html(showContent)
+          }else{
+            showContent=showModel();
+            $('body').append(showContent)
+            $('#showContent').html('没有数据！');
+          }
+        },
+        error:function(){
+           console.log('error');
+         }
+        })
+      });
+
+    })

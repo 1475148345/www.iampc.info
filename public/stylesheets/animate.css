@@ -1,0 +1,20 @@
+.font-ani {
+  background: linear-gradient(#31b7e8, #ffc900);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: ani 2s linear infinite; }
+
+@keyframes ani {
+  0% {
+    background: linear-gradient(#31b7e8, #ffc900);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
+  100% {
+    background: linear-gradient(#ffc900, #31b7e8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; } }
+
+/*# sourceMappingURL=animate.css.map */

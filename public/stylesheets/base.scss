@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+/*
+间距
+*/
+$marginPadding:(t:top, r:right, b:bottom, l:left);
+@each $key,
+$value in $marginPadding {
+    .m#{$key}5 {
+        margin-#{$value}: 5px;
+    }
+    .m#{$key}10 {
+        margin-#{$value}: 10px;
+    }
+    .p#{$key}5 {
+        padding-#{$value}: 5px;
+    }
+    .p#{$key}10 {
+        padding-#{$value}: 10px;
+    }
+}
+
+/*
+*列表样式
+*/
+.my-item{
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+.my-item-list{
+    margin: 10px 0;
+}
+/*
+*自定义按钮
+*/
+
+@mixin my-btn($width, $height, $bg-color, $color, $font-size, $display, $padding) {
+    width: $width;
+    height: $height;
+    border-radius: 5px;
+    background-color: $bg-color;
+    text-align: center;
+    line-height: $height;
+    display: $display;
+    color: $color;
+    font-size: $font-size;
+    padding: $padding;
+    &:hover {
+        background-color: lighten($bg-color, 10%);
+    }
+}
+
+
+/*
+*模拟复选框
+*/
+
+.my-checkbox-sty {
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    display: block;
+    transition: all .3s ease-in;
+    border: 1px solid #ccc;
+    position: relative;
+    margin-right: 10px !important;
+    &:checked {
+        border-color: #f18900;
+        background-color: #f18900;
+        &::after {
+            color: #fff;
+            content: "√";
+            position: absolute;
+            top: 5px;
+            left: 9px;
+        }
+    }
+}
+
+.order-radio-sty {
+    content: '√';
+    width: 15px;
+    height: 15px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    color: green;
+    margin-left: 3px;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 15px;
+}
